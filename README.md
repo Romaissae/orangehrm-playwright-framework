@@ -1,4 +1,4 @@
-# RealWorld Playwright Framework
+# OrangeHRM Playwright Framework
 
 UI + API automation using Playwright.
 
