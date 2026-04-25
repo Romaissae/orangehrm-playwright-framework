@@ -2,14 +2,17 @@ class LoginPage {
   constructor(page) {
     this.page = page;
 
-    // selectors centralisés
-    this.usernameInput = page.locator('input[name="username"]');
-    this.passwordInput = page.locator('input[name="password"]');
+    this.usernameInput = page.getByRole('textbox', { name: 'Username' });
+    this.passwordInput = page.getByRole('textbox', { name: 'Password' });
     this.loginButton   = page.locator('button[type="submit"]');
+
+    this.usernameError = page.locator('.oxd-form-row').filter({ hasText: 'Username' }).getByText('Required');
+    this.passwordError = page.locator('.oxd-form-row').filter({ hasText: 'Password' }).getByText('Required');
+    this.invalidCredentialsError = page.getByText('Invalid credentials');
   }
 
   async goto() {
-    await this.page.goto('https://opensource-demo.orangehrmlive.com/');
+    await this.page.goto('/web/index.php/auth/login');
   }
 
   async login(username, password) {

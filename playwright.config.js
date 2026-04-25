@@ -5,15 +5,11 @@ module.exports = defineConfig({
   
   use: {
     headless: true,
-    baseURL: 'https://demo.realworld.io',
-    viewport: { width: 1280, height: 720 }
+    baseURL: 'https://opensource-demo.orangehrmlive.com',
+    viewport: { width: 1280, height: 720 },
+    storageState: '.auth/user.json',
   },
 
   globalSetup: require.resolve('./global-setup'),
-
-  use: {
-    baseURL: 'https://opensource-demo.orangehrmlive.com',
-    storageState: '.auth/user.json',
-  }
 
 });
